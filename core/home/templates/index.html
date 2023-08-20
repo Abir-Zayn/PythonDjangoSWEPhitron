@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block start %}
+
+<!-- The extends tag is inheriting the blocks of html from the base.html and its the common code
+for every html will that used in this project. The unique code(which doesn't match with base.html)
+has written here. 
+-->
+
+    <body>
+        <h1>This is a Django Template</h1>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis congue efficitur. Etiam vitae velit nec augue feugiat facilisis. Nullam lobortis justo iaculis lacus pretium porta. Proin congue varius ipsum, eu lobortis sapien molestie nec. Ut at tristique metus, eget dictum neque. Nulla tellus mauris, egestas ac eros et, ultricies fringilla felis. Aliquam erat volutpat. Proin egestas nunc vel arcu congue, congue malesuada arcu ornare.
+        Duis non lacus auctor turpis venenatis hendrerit in posuere mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec ultricies eget dolor ac varius. Fusce sit amet est eget ligula tempor congue eu non quam. Donec et pharetra quam. Proin eget bibendum mi. Mauris tincidunt fermentum posuere. Ut lacinia est.
+        </p>
+        {{people}}
+        
+        <table class="container">
+            <tr>
+                <th>sL</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Vote?</th>
+            </tr>
+
+            {% for i in people%} <!--Loop-->
+            <tr>
+                <td>{{forloop.counter}}</td> <!--Count how many times is occuring-->
+                <td>{{ i.name}}</td>
+                <td>{{i.age}}</td>
+                <td >
+                    {% if i.age >= 20 %} <!--If/Else tag-->
+                    yes
+                    {%else%}
+                    no
+                    {%endif%} 
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <!--Here its call filtering. You can find in docs. However functions of below code 
+        returns the number of words which will be visible in the web. As the data (text) coming
+        from the views.py so we have to use {{}} to show the workflow. 
+        -->
+        
+        {% comment %} <p> {{text  | truncatewords_html:5}} </p> {% endcomment %}
+
+        <p>
+            {% if "Tomato" in veg%}
+            yes
+            {% else %}
+            no
+            {% endif %}
+         </p>
+
+         <a href="/contact/"> contact </a> |
+         <a href="/about/"> about </a>
+
+{% endblock %}
