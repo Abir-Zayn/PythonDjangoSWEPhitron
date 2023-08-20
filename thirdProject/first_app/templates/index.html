@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Documents</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+           
+        
+         <table border ="1" width =500>
+            <tr>
+                <th>id</th>
+                <th>Course</th>
+                <th>Teacher</th>
+            </tr>
+                {% for i in courses %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.course}}</td>
+                    <td>{{i.teacher}}</td>
+                </tr>
+                {% endfor %}
+        </table> 
+        
+    </body>
+</html>
+
+<!---<h1> App 1 </h1>
+        <h1>Author name: {{name}} </h1>
+
+        <p> Age is : {{aa}} </p>
+        {% if aa >= 18 %}
+        <p>Age is suitable for Driving License </p>
+        {% else %}
+        <p>Youre not eligible</p>
+        {% endif %}-->
