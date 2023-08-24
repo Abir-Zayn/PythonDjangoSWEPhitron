@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block start %} {% csrf_token %} {% load static %}
+<style>
+  .card {
+    border: 0.5px solid black;
+  }
+</style>
+<div class="container">
+  <div class="d-flex flex-wrap">
+    {% for i in menu %}
+    <div
+      class="card"
+      style="
+        width: 18rem;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-family: Arial;
+      "
+    >
+      <img class="card-img-top" src="{{i.strMealThumb}}" alt="Card image cap" />
+      <div class="card-body">
+        <h3 class="name">{{i.strMeal}}</h3>
+        <p class="card-text">{{i.idMeal}}</p>
+        <p class="card-text" style="color: grey">{{i.des}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
